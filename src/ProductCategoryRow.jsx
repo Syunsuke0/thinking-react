@@ -18,7 +18,6 @@ export const ProductCategoryList = ({ products }) => {
           ))}
         </div>
       ))}
-      {/* <ProductRow data={data} /> */}
     </div>
   );
 };
