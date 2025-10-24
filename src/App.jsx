@@ -1,7 +1,6 @@
 import "./App.css";
 // import { Practice } from "./Practice";
 import { ProductCategoryList } from "./ProductCategoryRow";
-import { ProductTable } from "./ProductTable";
 import { SearchBar } from "./SearchBar";
 
 const MOCK_DATA = [
@@ -20,7 +19,6 @@ const App = () => {
       {/* <Practice /> */}
       <SearchBar />
 
-      <ProductTable />
 
       <ProductCategoryList products={MOCK_DATA} />
     </div>

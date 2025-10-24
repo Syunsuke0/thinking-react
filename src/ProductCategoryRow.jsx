@@ -1,4 +1,5 @@
 import { ProductRow } from "./ProductRow";
+import { ProductTable } from "./ProductTable";
 
 export const ProductCategoryList = ({ products }) => {
   const grouped = products.reduce((acc, product) => {
@@ -10,6 +11,7 @@ export const ProductCategoryList = ({ products }) => {
 
   return (
     <div>
+      <ProductTable />
       {Object.keys(grouped).map((category) => (
         <div key={category}>
           <h3>{category}</h3>
