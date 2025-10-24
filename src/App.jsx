@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 // import { Practice } from "./Practice";
 import { ProductCategoryList } from "./ProductCategoryRow";
@@ -13,14 +14,13 @@ const MOCK_DATA = [
 ];
 
 const App = () => {
+  const [filterText, setFilterText] = useState("");
   return (
     <div>
       <h1>Reactの流儀</h1>
       {/* <Practice /> */}
-      <SearchBar />
-
-
-      <ProductCategoryList products={MOCK_DATA} />
+      <SearchBar filterText={filterText} setFilterText={setFilterText} />
+      <ProductCategoryList filterText={filterText} products={MOCK_DATA} />
     </div>
   );
 };

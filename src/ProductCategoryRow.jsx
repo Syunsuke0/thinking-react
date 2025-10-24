@@ -1,8 +1,11 @@
 import { ProductRow } from "./ProductRow";
 import { ProductTable } from "./ProductTable";
 
-export const ProductCategoryList = ({ products }) => {
-  const grouped = products.reduce((acc, product) => {
+export const ProductCategoryList = ({ products, filterText }) => {
+  const filteredProducts = products.filter((product) => {
+    return product.name.toLowerCase().includes(filterText.toLowerCase());
+  });
+  const grouped = filteredProducts.reduce((acc, product) => {
     const category = product.category;
     if (!acc[category]) acc[category] = []; // 初めてのカテゴリなら空配列
     acc[category].push(product); // カテゴリごとに商品を追加

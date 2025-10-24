@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-export const SearchBar = () => {
-  const [filterText, setFilterText] = useState("");
+export const SearchBar = ({ filterText, setFilterText }) => {
   const handleChange = (e) => {
     setFilterText(e.target.value);
   };
