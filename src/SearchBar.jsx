@@ -1,8 +1,17 @@
-export const SearchBar = ({ filterText, setFilterText }) => {
+export const SearchBar = ({
+  filterText,
+  setFilterText,
+  inStockOnly,
+  setInStockOnly,
+}) => {
   const handleChange = (e) => {
     setFilterText(e.target.value);
   };
-  // const [inStockOnly, setInStockOnly] = useState(false);
+
+  const toggleOnStockOnly = (e) => {
+    setInStockOnly(e.target.checked);
+  };
+
   return (
     <form
       style={{
@@ -17,7 +26,12 @@ export const SearchBar = ({ filterText, setFilterText }) => {
         placeholder="Search..."
       />
       <label style={{ display: "flex" }}>
-        <input type="checkbox" /> Only show products in stock
+        <input
+          checked={inStockOnly}
+          onChange={toggleOnStockOnly}
+          type="checkbox"
+        />{" "}
+        Only show products in stock
       </label>
     </form>
   );

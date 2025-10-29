@@ -1,10 +1,15 @@
 import { ProductRow } from "./ProductRow";
 import { ProductTable } from "./ProductTable";
 
-export const ProductCategoryList = ({ products, filterText }) => {
+export const ProductCategoryList = ({ products, filterText, inStockOnly }) => {
   const filteredProducts = products.filter((product) => {
-    return product.name.toLowerCase().includes(filterText.toLowerCase());
+    const searchByText = product.name
+      .toLowerCase()
+      .includes(filterText.toLowerCase());
+    const searchByStock = !inStockOnly || product.stocked;
+    return searchByText && searchByStock;
   });
+
   const grouped = filteredProducts.reduce((acc, product) => {
     const category = product.category;
     if (!acc[category]) acc[category] = []; // 初めてのカテゴリなら空配列

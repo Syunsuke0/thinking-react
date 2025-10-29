@@ -15,12 +15,22 @@ const MOCK_DATA = [
 
 const App = () => {
   const [filterText, setFilterText] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
   return (
     <div>
       <h1>Reactの流儀</h1>
       {/* <Practice /> */}
-      <SearchBar filterText={filterText} setFilterText={setFilterText} />
-      <ProductCategoryList filterText={filterText} products={MOCK_DATA} />
+      <SearchBar
+        filterText={filterText}
+        setFilterText={setFilterText}
+        inStockOnly={inStockOnly}
+        setInStockOnly={setInStockOnly}
+      />
+      <ProductCategoryList
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        products={MOCK_DATA}
+      />
     </div>
   );
 };
